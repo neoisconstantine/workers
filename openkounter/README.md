@@ -120,6 +120,19 @@ npm run deploy
 
 > `npm run deploy` 时会自动读取 `wrangler.toml` 中的配置（包括 KV 绑定），无需额外操作。
 
+### 6. 连接 GitHub 自动部署（可选）
+
+也可以在 Cloudflare Dashboard 直接绑定 GitHub 仓库，推送代码后自动部署。
+
+1. 打开 [Cloudflare Dashboard](https://dash.cloudflare.com/) → **Workers & Pages** → **Create** → **Connect Git repository**
+2. 选择你的仓库，在 **Build configuration** 中设置：
+   - **Root Directory** → 输入 `openkounter`
+   - **Build command** → **留空**（本项目为纯 JS，无需构建）
+3. 创建 Worker 后，在 **Settings** → **Variables** 确认 KV Namespace 绑定已生效
+4. 之后每次推送代码到 `main` 分支，Cloudflare 会自动拉取并部署
+
+> 如果部署时报 `ENOENT` 错误，说明 Root Directory 未正确指向 `openkounter`；报 `Missing script: "build"` 错误，说明 Build command 未清空。
+
 ## 配置博客
 
 在 `_config.fluid.yml` 中修改：

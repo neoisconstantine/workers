@@ -4,7 +4,6 @@
   "description": "Cloudflare Worker 自建计数器，兼容 Hexo Fluid 主题 OpenKounter 插件",
   "private": true,
   "scripts": {
-    "build": "echo 'ok'",
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
     "kv:create": "wrangler kv namespace create COUNTERS",
