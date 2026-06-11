@@ -1,0 +1,14 @@
+name = "openkounter"
+main = "src/index.js"
+compatibility_date = "2025-02-01"
+
+# KV 命名空间 —— 部署前需先创建并绑定
+# 创建: npm run kv:create
+# 然后将生成的 id 填入下方
+[[kv_namespaces]]
+binding = "COUNTERS"
+id = "f66b32faa1114557b7cf339b240c764a"
+# preview_id 和 id 设为同一个，意味着你用 wrangler dev 本地开发时，读写的是生产环境的 KV。
+# 如果只是测试影响不大，但如果开发中弄脏了数据，会直接影响线上计数。建议要么删掉 preview_id，
+# 要么专门创建一个 preview 用的 KV namespace。
+# preview_id = "f66b32faa1114557b7cf339b240c764a"
